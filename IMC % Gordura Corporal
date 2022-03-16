@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+char nome[50];
+char sexo;
+float massa;
+float altura;
+int idade;
+float pescoco;
+float cintura;
+float nadegas;
+float gordura;
+float IMC;
+
+printf("Bem vindo ao programa de Calculo de IMC e Percentual de gordura\n\n");
+printf ("Por favor, digite o seu nome e sobrenome: \n\n");
+fgets( nome, 50, stdin);
+printf ("\nPrecisamos saber se voce e Homem ou Mulher, digite H para Homem ou M para Mulher: \n\n");
+scanf("%c", &sexo);
+printf("\nPor favor, me diga o seu peso em Kilos: \n\n");
+scanf("%f", &massa);
+printf("\nPor favor me diga sua altura em metros: \n\n");
+scanf("%f", &altura);
+IMC = (massa/altura)/altura;
+
+if ((sexo == 'H') || (sexo =='h') || (sexo == 'M') || (sexo == 'm')){
+if ((sexo == 'H') ||  (sexo == 'h')){
+printf("\nPor favor, me informe a medida do seu pescoco e cintura, digite consecultivamente as medidas em centimetros.\n\n");
+scanf("%f %f", &pescoco, &cintura);
+
+gordura = (495/(1.033- 0.191*(log10(cintura - pescoco)) + 0.155*(log10(altura*100))))-450;
+printf("\n\n\nPaciente: %s", nome);
+printf("\nAltura: %.2fm", altura);
+printf("\nPeso: %.2fkg", massa);
+printf("\nIMC: %.2f", IMC);
+printf("\nMedidas corporais - Pescoco: %.2fcm - Cintura: %.2fcm", pescoco, cintura);
+printf ("\nTaxa Percentual de Gordura: %.2f%\n\n", gordura);
+
+}
+
+if ( (sexo == 'M') || (sexo == 'm')){
+printf("\nPor favor, me informe a medida do seu pescoco, cintura e nadegas, consecultivamente e em centimetros.\n\n");
+scanf("%f %f %f",&pescoco, &cintura, &nadegas);
+
+gordura = (495/(1.296- 0.350*(log10(nadegas + cintura - pescoco)) + 0.221*(log10(altura*100))))-450;
+printf("\n\n\nPaciente: %s", nome);
+printf("\nAltura: %.2fm", altura);
+printf("\nPeso: %.2fkg", massa);
+printf("\nIMC: %.2f", IMC);
+printf("\nMedidas corporais - Nadegas: %.2fcm - Pescoco: %.2fcm - Cintura: %.2fcm", nadegas, pescoco, cintura);
+printf ("\nTaxa Percentual de Gordura: %.2f%\n\n", gordura);
+}
+printf("Obrigado por utilizar este programa");
+}
+}
